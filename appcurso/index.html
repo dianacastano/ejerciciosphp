@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: url('https://articles-img.sftcdn.net/t_article_cover_xl/auto-mapping-folder/sites/2/2020/02/fondos-pantalla-espacio-header-1.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+    .btn-custom {
+        margin: 10px;
+        padding: 15px 30px;
+        font-size: 1.2em;
+    }
+    .btn-primary-custom {
+        background-color: blue;
+        border: none;
+    }
+    .btn-secondary-custom {
+        background-color: green;
+        border: none;
+    }
+    .center-box {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Sistema de Usuarios</h2>
+        <div class="text-center">
+            <form action="./vista/usuario/alta.php" method="POST" style="display: inline;">
+                <input type="hidden" name="action" value="mostrar_formulario_alta">
+                <button type="submit" class="btn btn-primary">Dar de Alta Usuario</button>
+            </form>
+            <form action="index.php" method="POST" style="display: inline; margin-left: 10px;">
+                <input type="hidden" name="action" value="listar_usuarios">
+                <button type="submit" class="btn btn-success">Listar Usuarios</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

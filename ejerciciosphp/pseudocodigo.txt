@@ -1,0 +1,85 @@
+Pseudocódigo para la Creación de Usuarios
+Inicio
+    // Mostrar formulario HTML para la creación de usuarios
+    MostrarFormularioRegistro()
+
+    // Si se envió el formulario
+    Si FormularioEnviado() entonces
+        // Obtener los datos del formulario
+        nombre = ObtenerValor('nombre')
+        login = ObtenerValor('login')
+        password = ObtenerValor('password')
+        rol = ObtenerValor('rol')
+
+        // Validar que todos los campos estén completos
+        Si (nombre NO está vacío) y (login NO está vacío) y (password NO está vacío) y (rol NO está vacío) entonces
+            // Crear una cadena de texto con los datos del usuario
+            usuario = Concatenar(nombre, '|', login, '|', password, '|', rol)
+            
+            // Abrir el archivo usuarios.txt en modo de adición (append)
+            AbrirArchivo('usuarios.txt', 'append')
+            
+            // Escribir la cadena de texto en el archivo usuarios.txt
+            EscribirEnArchivo('usuarios.txt', usuario)
+            
+            // Cerrar el archivo
+            CerrarArchivo('usuarios.txt')
+            
+            // Mostrar mensaje de éxito
+            MostrarMensaje('Usuario registrado correctamente.')
+        Sino
+            // Mostrar mensaje de error de campos vacíos
+            MostrarMensajeError('Todos los campos son obligatorios.')
+        FinSi
+    FinSi
+Fin
+
+Pseudocódigo Login
+Inicio
+
+    // Mostrar formulario HTML para el login
+    MostrarFormularioLogin()
+
+    // Si se envió el formulario
+    Si FormularioEnviado() entonces
+        // Obtener los datos del formulario
+        login = ObtenerValor('login')
+        password = ObtenerValor('password')
+        
+        // Leer el archivo usuarios.txt
+        usuarios = LeerArchivo('usuarios.txt')
+
+        // Inicializar variable para validar credenciales
+        credencialesValidas = Falso
+
+        // Para cada usuario en la lista de usuarios
+        Para Cada usuario en usuarios hacer
+            // Dividir la línea del usuario en campos
+            campos = Dividir(usuario, '|')
+            nombre = campos[0]
+            loginUsuario = campos[1]
+            passwordUsuario = campos[2]
+            rol = campos[3]
+            
+            // Si el login y el password coinciden con algún usuario
+            Si (login == loginUsuario) y (password == passwordUsuario) entonces
+                // Iniciar sesión
+                IniciarSesion(nombre, loginUsuario, rol)
+                
+                // Redirigir al usuario a la página de bienvenida
+                Redirigir('bienvenida.php')
+                
+                // Establecer que las credenciales son válidas
+                credencialesValidas = Verdadero
+                
+                // Romper el bucle porque ya se encontraron las credenciales
+                Romper
+
+        // Si las credenciales no son válidas
+        Si NO credencialesValidas entonces
+            // Mostrar mensaje de error de credenciales
+            MostrarMensajeError('Credenciales incorrectas')
+        
+    FinSi
+
+Fin

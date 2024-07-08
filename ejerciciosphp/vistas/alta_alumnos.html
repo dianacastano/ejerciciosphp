@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Alumnos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://e1.pxfuel.com/desktop-wallpaper/541/3/desktop-wallpaper-backgrounds-for-visual-novel-anime-academy.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color:black;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        /* Estilos para centrar el contenido */
+        .container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.774);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">Formulario de Alta de Alumnos</h2>
+                <form action="../controladores/control_alumnos.php" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Alumno:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="domicilio">Domicilio:</label>
+                        <input type="text" class="form-control" id="domicilio" name="domicilio">
+                    </div>
+                    <div class="form-group">
+                        <label for="poblacion">Población:</label>
+                        <input type="text" class="form-control" id="poblacion" name="poblacion">
+                    </div>
+                    <div class="form-group">
+                        <label for="comunidad_autonoma">Comunidad Autónoma:</label>
+                        <input type="text" class="form-control" id="comunidad_autonoma" name="comunidad_autonoma">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
